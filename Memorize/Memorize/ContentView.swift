@@ -1,8 +1,7 @@
+//  VIEW
 //
 //  ContentView.swift
-//  Memorize
 //
-//  Created by Christian David Turner on 9/24/20.
 //
 
 import SwiftUI

@@ -10,13 +10,24 @@ class EmojiMemoryGame{
     
     // (set) = "Glass Door"
     // only EmojiMemoryGame can modify model, but everyone can see it
-    private(set) var model: MemoryGame<String> = MemoryGame<String>(numberOfPairsOfCards: 2, cardContentFactory: {(pairIndex: Int) -> String in
-        return "🌹"
-    })
+//     the underbar "_" WAS pairIndex, but in Swift it means it doesn't matter. we can put anything here
+    private var model: MemoryGame<String> = EmojiMemoryGame.createMemoryGame()
+    
+    static func createMemoryGame() -> MemoryGame<String>{
+        let emojis: Array<String> = ["🦔", "🦑", "🦂", "🐢"]
+        return MemoryGame<String>(numberOfPairsOfCards: 4) { pairIndex in
+            return emojis[pairIndex]
+        }
+    }
+    
+    // MARK: - Access to the Model
     
     var cards: Array<MemoryGame<String>.Card> {
-        return model.cards
+        model.cards
     }
+    
+    
+    // MARK: - Intent(s)
     
     func choose(card: MemoryGame<String>.Card){
         model.choose(card: card)

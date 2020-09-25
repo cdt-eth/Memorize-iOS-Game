@@ -10,19 +10,13 @@ struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
-        HStack {
-            //            if viewModel.cards.count < 5 {
-            //                viewModel.cards.font(Font.body)
-            //            } else {
-            //                viewModel.cards.font(Font.largeTitle)
-            //            }
-            ForEach(viewModel.cards) { card in
-                CardView(card: card).onTapGesture(perform: {viewModel.choose(card: card)})
+        Grid(viewModel.cards) { card in
+            CardView(card: card).onTapGesture{
+                viewModel.choose(card: card)
             }
         }
         .padding()
         .foregroundColor(Color.red)
-        //        .aspectRatio(CGSize(width: 2, height: 3), contentMode: .fit)
     }
 }
 

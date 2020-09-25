@@ -13,28 +13,14 @@ struct MemoryGame<CardContent> where CardContent: Equatable{
     var indexOfTheOneAndOnlyFaceUpCard: Int? {
         
         get {
-            // [Int] = Array<Int>
-            var faceUpCardIndices = [Int]()
-            
-            for index in cards.indices {
-                if cards[index].isFaceUp {
-                    faceUpCardIndices.append(index)
-                }
-            }
-            if faceUpCardIndices.count == 1 {
-                return faceUpCardIndices.first
-            } else {
-                return nil
-            }
+            // var faceUpCardIndices = cards.indices.filter { index in cards[index].isFaceUp }
+            // $0 means "first argument", $1 means "second arguement" and so on
+            cards.indices.filter { cards[$0].isFaceUp }.only
         }
         
         set {
             for index in cards.indices {
-                if index == newValue {
-                    cards[index].isFaceUp = true
-                } else {
-                    cards[index].isFaceUp = false
-                }
+                    cards[index].isFaceUp = index == newValue
             }
         }
         

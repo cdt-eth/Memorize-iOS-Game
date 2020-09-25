@@ -24,10 +24,7 @@ struct EmojiMemoryGameView: View {
 
 struct CardView: View {
     
-    
     var card: MemoryGame<String>.Card
-    
-    
     
     var body: some View{
         GeometryReader { geometry in
@@ -42,7 +39,9 @@ struct CardView: View {
                 RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeLineWidth)
                 Text(card.content)
             } else {
-                RoundedRectangle(cornerRadius: cornerRadius).fill()
+                if !card.isMatched{
+                    RoundedRectangle(cornerRadius: cornerRadius).fill()
+                }
             }
         }.font(Font.system(size: fontSize(for: size)))
     }

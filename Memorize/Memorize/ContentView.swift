@@ -18,6 +18,7 @@ struct ContentView: View {
         .padding()
         .foregroundColor(Color.green)
         .font(Font.largeTitle)
+        .aspectRatio(CGSize(width: 2, height: 3), contentMode: .fill)
     }
 }
 

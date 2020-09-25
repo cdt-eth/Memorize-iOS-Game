@@ -32,22 +32,12 @@ struct Grid<Item, ItemView>: View where Item: Identifiable, ItemView: View {
     
     // 3) We offer it to our sub-views (.frame(....))
     // 4) We position them at those locations (.position(...))
-    func body(for item: Item, in layout: GridLayout) -> some View{
+    func body(for item: Item, in layout: GridLayout) -> some View {
         
-        let index = self.index(of: item)
-            
+        let index = items.firstIndex(matching: item)!
+        
         return viewForItem(item)
             .frame(width: layout.itemSize.width, height: layout.itemSize.height)
             .position(layout.location(ofItemAt: index))
     }
-    
-    func index(of item: Item) -> Int {
-        for index in 0..<items.count {
-            if items[index].id == item.id {
-                return index
-            }
-        }
-        return 0 // TODO: find a better solution
-    }
 }
-

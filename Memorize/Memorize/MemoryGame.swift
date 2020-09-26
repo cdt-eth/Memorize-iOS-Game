@@ -17,7 +17,6 @@ struct MemoryGame<CardContent> where CardContent: Equatable{
             // $0 means "first argument", $1 means "second arguement" and so on
             cards.indices.filter { cards[$0].isFaceUp }.only
         }
-        
         set {
             for index in cards.indices {
                     cards[index].isFaceUp = index == newValue

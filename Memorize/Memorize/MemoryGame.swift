@@ -7,10 +7,12 @@
 import Foundation
 
 struct MemoryGame<CardContent> where CardContent: Equatable{
-    var cards: Array<Card>
+
+    // private set meants WRITING is private but reading is not
+    private(set) var cards: Array<Card>
     
     // optionals are automatically initialized to nil
-    var indexOfTheOneAndOnlyFaceUpCard: Int? {
+    private var indexOfTheOneAndOnlyFaceUpCard: Int? {
         
         get {
             // var faceUpCardIndices = cards.indices.filter { index in cards[index].isFaceUp }
@@ -45,14 +47,12 @@ struct MemoryGame<CardContent> where CardContent: Equatable{
         }
     }
     
+    
     init(numberOfPairsOfCards: Int, cardContentFactory: (Int) -> CardContent){
-        
         cards = Array<Card>()
         
         for pairIndex in 0..<numberOfPairsOfCards{
-            
             let content = cardContentFactory(pairIndex)
-            
             cards.append(Card(content: content, id: pairIndex*2))
             cards.append(Card(content: content, id: pairIndex*2+1))
             cards.shuffle()

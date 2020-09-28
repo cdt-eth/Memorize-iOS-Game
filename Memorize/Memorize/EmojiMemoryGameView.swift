@@ -66,7 +66,11 @@ struct CardView: View {
             if card.isFaceUp {
                 RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
                 RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeLineWidth)
-                Pie(startAngle: Angle.degrees(0), endAngle: Angle.degrees(110)).padding(5).opacity(0.4)
+                
+                // in iOS "0 degrees" isn't true norht, it's our 3 oclock
+                // in iOS clockwise is opposite
+                Pie(startAngle: Angle.degrees(0-90), endAngle: Angle.degrees(110-90),clockwise: true).padding(5).opacity(0.4)
+                
                 Text(card.content)
             } else {
                 if !card.isMatched{

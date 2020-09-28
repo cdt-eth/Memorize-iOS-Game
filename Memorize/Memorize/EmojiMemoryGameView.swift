@@ -10,20 +10,22 @@ struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
-        Text("Animals")
-            .font(.largeTitle).padding()
-        HStack {
-            Text("Score: 12")
-                .font(.body).bold().padding(8.0)
-            
-            Button(action: {
-                print("NEW GAME")
-            }) {
-                Text("NEW GAME")
-                    .font(.body).bold().padding(8.0)
-                    .overlay(RoundedRectangle(cornerRadius: 35.0).stroke(lineWidth: 2.0))
-            }
-        }
+//
+//        Text("Animals")
+//            .font(.largeTitle).padding()
+//
+//        HStack {
+//            Text("Score: 12")
+//                .font(.body).bold().padding(8.0)
+//
+//            Button(action: {
+//                print("NEW GAME")
+//            }) {
+//                Text("NEW GAME")
+//                    .font(.body).bold().padding(8.0)
+//                    .overlay(RoundedRectangle(cornerRadius: 35.0).stroke(lineWidth: 2.0))
+//            }
+//        }
         
         Grid(viewModel.cards) { card in
             CardView(card: card).onTapGesture{
@@ -36,6 +38,18 @@ struct EmojiMemoryGameView: View {
     }
 }
 
+//var body: some View {
+//       VStack {
+//           Button(action: {EmojiMemoryGame.newGame() }) {
+//               Text("New Game")
+//           }
+//           EmojiMemoryGameView(EmojiMemoryGame: EmojiMemoryGame)
+//       }
+//   }
+
+//struct TitleBar: View{
+//    
+//}
 
 struct CardView: View {
     
@@ -52,6 +66,7 @@ struct CardView: View {
             if card.isFaceUp {
                 RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
                 RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: edgeLineWidth)
+                Pie(startAngle: Angle.degrees(0), endAngle: Angle.degrees(110)).padding(5).opacity(0.4)
                 Text(card.content)
             } else {
                 if !card.isMatched{
@@ -68,7 +83,7 @@ struct CardView: View {
     private let edgeLineWidth: CGFloat = 3
     
     private func fontSize(for size: CGSize) -> CGFloat {
-        min(size.width, size.height) * 0.75
+        min(size.width, size.height) * 0.7
     }
     
 }
@@ -76,6 +91,8 @@ struct CardView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        EmojiMemoryGameView(viewModel: EmojiMemoryGame())
+        let game = EmojiMemoryGame()
+        game.choose(card: game.cards[0])
+        return EmojiMemoryGameView(viewModel: game)
     }
 }

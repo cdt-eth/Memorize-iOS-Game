@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6938AC1D25225F440001D1ED /* Pie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6938AC1C25225F440001D1ED /* Pie.swift */; };
 		6949E82F251CE2560004BF88 /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6949E82E251CE2560004BF88 /* MemorizeApp.swift */; };
 		6949E831251CE2560004BF88 /* EmojiMemoryGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6949E830251CE2560004BF88 /* EmojiMemoryGameView.swift */; };
 		6949E833251CE2580004BF88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6949E832251CE2580004BF88 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6938AC1C25225F440001D1ED /* Pie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pie.swift; sourceTree = "<group>"; };
 		6949E82B251CE2560004BF88 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6949E82E251CE2560004BF88 /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
 		6949E830251CE2560004BF88 /* EmojiMemoryGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGameView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				6949E82E251CE2560004BF88 /* MemorizeApp.swift */,
 				6949E830251CE2560004BF88 /* EmojiMemoryGameView.swift */,
+				6938AC1C25225F440001D1ED /* Pie.swift */,
 				69C894F2251E5DED001DECCC /* Grid.swift */,
 				69C894FC251E66B0001DECCC /* Array+Identifiable.swift */,
 				6949E85C251CF5BD0004BF88 /* MemoryGame.swift */,
@@ -280,6 +283,7 @@
 				6949E85D251CF5BD0004BF88 /* MemoryGame.swift in Sources */,
 				6949E831251CE2560004BF88 /* EmojiMemoryGameView.swift in Sources */,
 				6949E82F251CE2560004BF88 /* MemorizeApp.swift in Sources */,
+				6938AC1D25225F440001D1ED /* Pie.swift in Sources */,
 				69C894F8251E62DC001DECCC /* GridLayout.swift in Sources */,
 				69C894F3251E5DED001DECCC /* Grid.swift in Sources */,
 				69C894FD251E66B0001DECCC /* Array+Identifiable.swift in Sources */,

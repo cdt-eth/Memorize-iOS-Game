@@ -39,6 +39,10 @@ class EmojiMemoryGame: ObservableObject {
         }
     }
     
+//    func newGame() {
+//            EmojiMemoryGame.theme = themeData.randomElement()!
+//            game = EmojiMemoryGame.createMemoryGame()
+//     }
     
     
     

@@ -16,34 +16,11 @@ class EmojiMemoryGame: ObservableObject {
     private static func createMemoryGame() -> MemoryGame<String>{
         let emojis = ["🦔", "🦑", "🦂", "🐢", "🦎", "🦧"]
         let nums = Int.random(in: 2...emojis.count)
-//        emojis.count
-        
-        // insert title bar view here
-//        Text("Animals")
-//            .font(.largeTitle).padding()
-//        HStack {
-//            Text("Score: 12")
-//                .font(.body).bold().padding(8.0)
-//            
-//            Button(action: {
-//                print("NEW GAME")
-//            }) {
-//                Text("NEW GAME")
-//                    .font(.body).bold().padding(8.0)
-//                    .overlay(RoundedRectangle(cornerRadius: 35.0).stroke(lineWidth: 2.0))
-//            }
-//        }
         
         return MemoryGame<String>(numberOfPairsOfCards: nums) { pairIndex in
             return emojis[pairIndex]
         }
     }
-    
-//    func newGame() {
-//            EmojiMemoryGame.theme = themeData.randomElement()!
-//            game = EmojiMemoryGame.createMemoryGame()
-//     }
-    
     
     
     // MARK: - Access to the Model
@@ -59,6 +36,11 @@ class EmojiMemoryGame: ObservableObject {
         objectWillChange.send()
         model.choose(card: card)
     }
+    
+    func resetGame() {
+        model = EmojiMemoryGame.createMemoryGame()
+     }
+    
     
 }
 

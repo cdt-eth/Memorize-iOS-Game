@@ -10,46 +10,34 @@ struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
-        //
-        //        Text("Animals")
-        //            .font(.largeTitle).padding()
-        //
-        //        HStack {
-        //            Text("Score: 12")
-        //                .font(.body).bold().padding(8.0)
-        //
-        //            Button(action: {
-        //                print("NEW GAME")
-        //            }) {
-        //                Text("NEW GAME")
-        //                    .font(.body).bold().padding(8.0)
-        //                    .overlay(RoundedRectangle(cornerRadius: 35.0).stroke(lineWidth: 2.0))
-        //            }
-        //        }
         
-        Grid(viewModel.cards) { card in
-            CardView(card: card).onTapGesture{
-                viewModel.choose(card: card)
-            }
-            .padding(5)
+        HStack {
+            Text("Animals")
+                .font(.largeTitle).padding()
+            Text("Score: 12")
+                .font(.body).bold().padding(8.0)
         }
-        .padding()
-        .foregroundColor(Color.red)
+        
+        VStack{
+            Grid(viewModel.cards) { card in
+                CardView(card: card).onTapGesture{
+                    viewModel.choose(card: card)
+                }
+                .padding(5)
+            }
+            .padding()
+            .foregroundColor(Color.red)
+            
+            // New Game button
+            Button(action: { viewModel.resetGame()
+            }, label: { Text("NEW GAME").font(.body).bold().padding(8.0)
+                .overlay(RoundedRectangle(cornerRadius: 35.0).stroke(lineWidth: 2.0))
+            })
+            
+        }
     }
 }
 
-//var body: some View {
-//       VStack {
-//           Button(action: {EmojiMemoryGame.newGame() }) {
-//               Text("New Game")
-//           }
-//           EmojiMemoryGameView(EmojiMemoryGame: EmojiMemoryGame)
-//       }
-//   }
-
-//struct TitleBar: View{
-//    
-//}
 
 struct CardView: View {
     

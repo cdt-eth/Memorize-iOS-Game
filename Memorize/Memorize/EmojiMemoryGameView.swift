@@ -21,7 +21,9 @@ struct EmojiMemoryGameView: View {
         VStack{
             Grid(viewModel.cards) { card in
                 CardView(card: card).onTapGesture{
+                    withAnimation(.linear){
                     viewModel.choose(card: card)
+                    }
                 }
                 .padding(5)
             }
@@ -52,6 +54,8 @@ struct CardView: View {
         }
     }
     
+    
+    
     @ViewBuilder
     private func body(for size: CGSize) -> some View {
         
@@ -67,6 +71,8 @@ struct CardView: View {
                     .animation(card.isMatched ? Animation.linear(duration: 1).repeatForever(autoreverses: false) : .default)
             }
             .cardify(isFaceUp:card.isFaceUp)
+            .transition(AnyTransition.scale)
+            
         }
     }
     

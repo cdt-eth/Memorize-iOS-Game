@@ -9,22 +9,19 @@ import SwiftUI
 struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
-    
     var body: some View {
+        Text("Animals")
+            .font(.largeTitle).padding()
         HStack {
-            Text("Animals")
-                .font(.largeTitle)
+            Text("Score: 12")
+                .font(.body).bold().padding(8.0)
+            
             Button(action: {
                 print("NEW GAME")
-                
             }) {
                 Text("NEW GAME")
-                    .font(.headline)
-                    .bold()
-                    .padding(10.0)
-                    .overlay(RoundedRectangle(cornerRadius: 10.0)
-                                .stroke(lineWidth: 2.0)
-                    )
+                    .font(.body).bold().padding(8.0)
+                    .overlay(RoundedRectangle(cornerRadius: 35.0).stroke(lineWidth: 2.0))
             }
         }
         

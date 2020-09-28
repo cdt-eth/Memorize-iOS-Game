@@ -29,7 +29,10 @@ struct EmojiMemoryGameView: View {
             .foregroundColor(Color.red)
             
             // New Game button
-            Button(action: { viewModel.resetGame()
+            Button(action: {
+                withAnimation(.easeInOut){
+                    viewModel.resetGame()
+                }
             }, label: { Text("NEW GAME").font(.body).bold().padding(8.0)
                 .overlay(RoundedRectangle(cornerRadius: 35.0).stroke(lineWidth: 2.0))
             })

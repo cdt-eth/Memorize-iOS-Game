@@ -10,6 +10,15 @@ struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel: EmojiMemoryGame
     
     var body: some View {
+        Text("Animals")
+            .font(.largeTitle)
+        
+        Button(action: {
+            print("NEW GAME")
+        }) {
+            Text("NEW GAME").font(.headline).bold()
+        }
+        
         Grid(viewModel.cards) { card in
             CardView(card: card).onTapGesture{
                 viewModel.choose(card: card)

@@ -1,1 +1,1 @@
-# Memorize
+# Memorize iOS Game

@@ -24,4 +24,4 @@ A memory matching game for iOS built with SwiftUI!
 
 # Gameplay
 
-![cypress](https://raw.githubusercontent.com/christiandavidturner/Memorize-iOS-Game/master/memorize.gif)
+![cypress](https://raw.githubusercontent.com/christiandavidturner/Memorize-iOS-Game/master/game.gif)
